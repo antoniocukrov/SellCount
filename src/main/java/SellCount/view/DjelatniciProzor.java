@@ -14,9 +14,9 @@ import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
 
-public class Djelatnici extends javax.swing.JFrame {
+public class DjelatniciProzor extends javax.swing.JFrame {
 private ObradaDjelatnik obrada;
-    public Djelatnici() {
+    public DjelatniciProzor() {
         initComponents();
         obrada = new ObradaDjelatnik();
         listaSkladiste.setCellRenderer(new PrikazDjelatnika());

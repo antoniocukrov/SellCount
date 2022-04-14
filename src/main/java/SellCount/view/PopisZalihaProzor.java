@@ -11,14 +11,14 @@ import javax.swing.event.DocumentListener;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 
-public class PopisZaliha extends javax.swing.JFrame {
+public class PopisZalihaProzor extends javax.swing.JFrame {
 
     private ObradaArtikl obradaA;
     private TableRowSorter sorter;
     DefaultTableModel ms;
             
     
-    public PopisZaliha() {
+    public PopisZalihaProzor() {
         initComponents();
         ucitajTablicu();
         setTitle(SellCount.util.SellCountUtil.NAZIV_APP +"|Popis Zaliha");

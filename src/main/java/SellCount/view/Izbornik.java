@@ -253,15 +253,15 @@ public class Izbornik extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jSkladisteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jSkladisteActionPerformed
-        new Skladiste().setVisible(true);
+        new SkladisteProzor().setVisible(true);
     }//GEN-LAST:event_jSkladisteActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        new Djelatnici().setVisible(true);
+        new DjelatniciProzor().setVisible(true);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jPopisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPopisActionPerformed
-        new PopisZaliha().setVisible(true);
+        new PopisZalihaProzor().setVisible(true);
     }//GEN-LAST:event_jPopisActionPerformed
 
     private void jZaprimiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jZaprimiActionPerformed

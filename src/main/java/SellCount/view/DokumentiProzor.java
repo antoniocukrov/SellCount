@@ -216,7 +216,7 @@ public class DokumentiProzor extends javax.swing.JFrame {
  
 		    System.out.println("PDF modified successfully.");
 		} catch (Exception e) {
-		         JOptionPane.showMessageDialog(getRootPane(), "Puklo bjatić!");
+		         JOptionPane.showMessageDialog(getRootPane(), "Puklo!");
 		}
     }//GEN-LAST:event_btnPdfActionPerformed
 

@@ -15,11 +15,11 @@ import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
 
-public class Skladiste extends javax.swing.JFrame {
+public class SkladisteProzor extends javax.swing.JFrame {
         private ObradaArtikl obrada;
              
     
-        public Skladiste() {
+        public SkladisteProzor() {
         initComponents();
         obrada = new ObradaArtikl();
         listaSkladiste.setCellRenderer(new PrikazArtikla());
