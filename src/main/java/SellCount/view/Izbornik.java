@@ -68,6 +68,7 @@ public class Izbornik extends javax.swing.JFrame {
             jSkladiste.setVisible(false);
             mItemDjelatnici.setVisible(false);
             jSnake.setVisible(false);
+            jKlasifikacija.setVisible(false);
         }
         
     }
@@ -100,6 +101,7 @@ public class Izbornik extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         mDatoteka = new javax.swing.JMenu();
         mItemDjelatnici = new javax.swing.JMenuItem();
+        jKlasifikacija = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
         mSkladiste = new javax.swing.JMenu();
         jSkladiste = new javax.swing.JMenuItem();
@@ -152,6 +154,14 @@ public class Izbornik extends javax.swing.JFrame {
             }
         });
         mDatoteka.add(mItemDjelatnici);
+
+        jKlasifikacija.setText("Klasifikacije");
+        jKlasifikacija.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jKlasifikacijaActionPerformed(evt);
+            }
+        });
+        mDatoteka.add(jKlasifikacija);
 
         jMenuItem1.setText("Izlaz");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
@@ -286,11 +296,16 @@ public class Izbornik extends javax.swing.JFrame {
             ex.setVisible(true);
         });
     }//GEN-LAST:event_jSnakeActionPerformed
+
+    private void jKlasifikacijaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jKlasifikacijaActionPerformed
+        new KlasifikacijaProzor().setVisible(true);
+    }//GEN-LAST:event_jKlasifikacijaActionPerformed
  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JMenuItem jDokumenti;
+    private javax.swing.JMenuItem jKlasifikacija;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jPopis;
