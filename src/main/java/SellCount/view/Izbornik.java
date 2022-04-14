@@ -1,6 +1,7 @@
 package SellCount.view;
 
 import SellCount.controller.ObradaArtikl;
+import SellCount.controller.ObradaOperater;
 import SellCount.game.Snake;
 import SellCount.model.Artikl;
 import SellCount.util.SellCountUtil;
@@ -22,6 +23,7 @@ public class Izbornik extends javax.swing.JFrame {
 
     private SimpleDateFormat df;
     ObradaArtikl obrada;
+    ObradaOperater admin;
 
     public Izbornik() {
         initComponents();
@@ -57,11 +59,17 @@ public class Izbornik extends javax.swing.JFrame {
         
     }
     private void postavke() {
-        setTitle(SellCountUtil.NAZIV_APP);
+        setTitle(SellCountUtil.getNaslov("Izbornik"));
         df = new SimpleDateFormat("dd.MMMM.yyy. HH:mm:ss");
         Vrijeme v = new Vrijeme();
         v.start();
         nacrtajGraf();
+        if (!SellCountUtil.operater.getUloga().equals("oper")){
+            jSkladiste.setVisible(false);
+            mItemDjelatnici.setVisible(false);
+            jSnake.setVisible(false);
+        }
+        
     }
 
     
@@ -88,10 +96,10 @@ public class Izbornik extends javax.swing.JFrame {
         lTop6 = new javax.swing.JLabel();
         pnlGraf = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jSnake = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         mDatoteka = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        mItemDjelatnici = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
         mSkladiste = new javax.swing.JMenu();
         jSkladiste = new javax.swing.JMenuItem();
@@ -128,22 +136,22 @@ public class Izbornik extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Snake game");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jSnake.setText("Snake game");
+        jSnake.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jSnakeActionPerformed(evt);
             }
         });
 
         mDatoteka.setText("Datoteka");
 
-        jMenuItem2.setText("Djelatnici");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        mItemDjelatnici.setText("Djelatnici");
+        mItemDjelatnici.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                mItemDjelatniciActionPerformed(evt);
             }
         });
-        mDatoteka.add(jMenuItem2);
+        mDatoteka.add(mItemDjelatnici);
 
         jMenuItem1.setText("Izlaz");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
@@ -217,7 +225,7 @@ public class Izbornik extends javax.swing.JFrame {
                                 .addComponent(lTop6)
                                 .addGap(155, 155, 155))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jButton2)
+                                .addComponent(jSnake)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 236, Short.MAX_VALUE)
                                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))))))
         );
@@ -236,7 +244,7 @@ public class Izbornik extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton1)
-                            .addComponent(jButton2))
+                            .addComponent(jSnake))
                         .addContainerGap())))
         );
 
@@ -256,9 +264,9 @@ public class Izbornik extends javax.swing.JFrame {
         new SkladisteProzor().setVisible(true);
     }//GEN-LAST:event_jSkladisteActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+    private void mItemDjelatniciActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mItemDjelatniciActionPerformed
         new DjelatniciProzor().setVisible(true);
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    }//GEN-LAST:event_mItemDjelatniciActionPerformed
 
     private void jPopisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPopisActionPerformed
         new PopisZalihaProzor().setVisible(true);
@@ -272,28 +280,28 @@ public class Izbornik extends javax.swing.JFrame {
         nacrtajGraf();
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jSnakeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jSnakeActionPerformed
           EventQueue.invokeLater(() -> {
             JFrame ex = new Snake();
             ex.setVisible(true);
         });
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_jSnakeActionPerformed
  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JMenuItem jDokumenti;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jPopis;
     private javax.swing.JMenuItem jSkladiste;
+    private javax.swing.JButton jSnake;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JMenuItem jZaprimi;
     private javax.swing.JLabel lTop6;
     private javax.swing.JLabel lVrijeme;
     private javax.swing.JMenu mDatoteka;
+    private javax.swing.JMenuItem mItemDjelatnici;
     private javax.swing.JMenu mPrimka;
     private javax.swing.JMenu mSkladiste;
     private javax.swing.JPanel pnlGraf;
