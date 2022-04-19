@@ -16,6 +16,8 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.text.DecimalFormat;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.Vector;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -31,8 +33,7 @@ public class DokumentiProzor extends javax.swing.JFrame {
         setTitle(SellCountUtil.getNaslov("Pr. dokumenti"));
 
     }
-    
-        
+
     public void ucitajTablicu() {
         ms = new DefaultTableModel();
         ms.addColumn("Šifra");
@@ -43,10 +44,8 @@ public class DokumentiProzor extends javax.swing.JFrame {
         ms.addColumn("Ukupan iznos");
         tblDokumenti.setModel(ms);
         tblDokumenti.getTableHeader().setBackground(Color.LIGHT_GRAY);
-        Font fontiki = new Font("Segoe",Font.BOLD,12);
+        Font fontiki = new Font("Segoe", Font.BOLD, 12);
         tblDokumenti.getTableHeader().setFont(fontiki);
-        
-        
 
         new ObradaPrimka().read().forEach(s -> {
             Vector vec = new Vector();
@@ -54,7 +53,7 @@ public class DokumentiProzor extends javax.swing.JFrame {
             vec.add(s.getBrojOtpremnice());
             vec.add(s.getDjelatnik());
             vec.add(s.getDobavljac());
-            vec.add(s.getVrijemeZaprimanja());
+            vec.add(DajSine(s.getVrijemeZaprimanja()));
             vec.add(s.getUkupanIznos());
             ms.addRow(vec);
         });
@@ -186,7 +185,7 @@ public class DokumentiProzor extends javax.swing.JFrame {
             }
 
             String vrijemeZaprimanja = tblDokumenti.getValueAt(tblDokumenti.getSelectedRow(), 4).toString();
-            String[] splitanoVrijeme = vrijemeZaprimanja.split("T");
+            String[] splitanoVrijeme = vrijemeZaprimanja.split(" ");
             String datum = splitanoVrijeme[0];
             String satMinut = splitanoVrijeme[1];
 
@@ -219,7 +218,7 @@ public class DokumentiProzor extends javax.swing.JFrame {
                     Long.parseLong(
                             tblDokumenti.getValueAt(tblDokumenti.getSelectedRow(), 0).toString()));
             int pocetakY = 515;
-            
+
             for (Artikl a : p.getArtikli()) {
 
                 for (int i = 1; i <= pages; i++) {
@@ -271,5 +270,12 @@ public class DokumentiProzor extends javax.swing.JFrame {
             folder.mkdir();
         }
 
+    }
+
+    private String DajSine(LocalDateTime datum) {
+        LocalDateTime now = datum;
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+        String formatDateTime = now.format(formatter);
+        return formatDateTime;
     }
 }
