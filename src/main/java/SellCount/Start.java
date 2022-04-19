@@ -1,7 +1,9 @@
 package SellCount;
 
+import SellCount.controller.ObradaOperater;
 import SellCount.controller.ObradaPrimka;
 import SellCount.model.Artikl;
+import SellCount.model.Operater;
 import org.hibernate.Session;
 import SellCount.util.HibernateUtil;
 import SellCount.util.PocetniInsert;
@@ -13,18 +15,9 @@ public class Start {
     private Session session;
     
     public Start(){
-       
-    }
+           }
     
     public static void main(String[] args) {
-            new SplashScreen().setVisible(true);
-            //PocetniInsert.unosSvega();
-            
-            
-            
-            
-            
-            
- 
+      new SplashScreen().setVisible(true);
     }
 }

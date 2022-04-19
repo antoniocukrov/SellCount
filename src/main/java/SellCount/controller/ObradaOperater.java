@@ -30,7 +30,17 @@ public class ObradaOperater extends Obrada<Operater>{
         
         return BCrypt.checkpw(lozinka, operater.getLozinka()) ?  operater : null;
     }
-
+    
+    public Operater pocetniUnos() {
+        Operater pocetniOp=null;
+        try{
+            pocetniOp = (Operater)session.createQuery("from Operater where uloga=oper");
+        }catch (NoResultException e){
+            return null;
+        }
+        return pocetniOp;
+        }
+    
     @Override
     protected void kontrolaCreate() throws SellCountException {
         throw new UnsupportedOperationException("Not supported yet.");

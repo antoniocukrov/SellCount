@@ -23,7 +23,7 @@ public class SkladisteProzor extends javax.swing.JFrame {
         initComponents();
         obrada = new ObradaArtikl();
         listaSkladiste.setCellRenderer(new PrikazArtikla());
-        setTitle("Skladište");
+        setTitle(SellCount.util.SellCountUtil.getNaslov("Skladište"));
         ucitaj();
         ucitajJmjere();
         ucitajKlasifikaciju();

@@ -1,12 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package SellCount.view;
 
 import SellCount.controller.ObradaDjelatnik;
 import SellCount.model.Djelatnik;
 import SellCount.util.SellCountException;
+import SellCount.util.SellCountUtil;
 import java.awt.event.KeyEvent;
 import java.util.Collections;
 import java.util.List;
@@ -20,7 +17,7 @@ private ObradaDjelatnik obrada;
         initComponents();
         obrada = new ObradaDjelatnik();
         listaSkladiste.setCellRenderer(new PrikazDjelatnika());
-        setTitle("Djelatnici");
+        setTitle(SellCountUtil.getNaslov("Djelatnici"));
         ucitaj();
     }
     

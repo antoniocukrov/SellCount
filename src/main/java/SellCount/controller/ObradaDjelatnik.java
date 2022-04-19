@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package SellCount.controller;
 
 import SellCount.model.Artikl;
@@ -9,10 +5,6 @@ import SellCount.model.Djelatnik;
 import SellCount.util.SellCountException;
 import java.util.List;
 
-/**
- *
- * @author Lord Pupcent
- */
 public class ObradaDjelatnik extends Obrada<Djelatnik>{
     
     @Override

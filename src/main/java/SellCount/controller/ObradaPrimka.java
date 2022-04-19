@@ -24,6 +24,13 @@ public class ObradaPrimka extends Obrada<Primka>{
                 .setMaxResults(50)
                 .list();
     }
+  
+  public Primka getPrimka(Long sifra){
+        return (Primka) session.createQuery("from Primka where sifra=:sifra")
+                .setParameter("sifra",sifra)
+                .getSingleResult();
+    }
+
     
     
     @Override

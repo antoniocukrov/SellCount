@@ -2,18 +2,24 @@ package SellCount.view;
 
 import SellCount.controller.ObradaOperater;
 import SellCount.model.Operater;
+import SellCount.util.PocetniInsert;
 import SellCount.util.SellCountUtil;
+import java.awt.Color;
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 public class Autorizacija extends javax.swing.JFrame {
 
     private ObradaOperater obradaOperater;
     
     public Autorizacija() {
+        obradaOperater = new ObradaOperater();
+        if(obradaOperater.read().isEmpty()){
+            PocetniInsert.unosSvega();
+        }
         initComponents();
         postavke();
     }
     private void postavke(){
-         obradaOperater = new ObradaOperater();
         txtUsername.setText("Blagajnik");
         txtLozinka.setText("racun");
         setTitle(SellCountUtil.getNaslov("Autorizacija"));
@@ -35,6 +41,11 @@ public class Autorizacija extends javax.swing.JFrame {
         jLabel1.setText("Username");
 
         txtUsername.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        txtUsername.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtUsernameKeyPressed(evt);
+            }
+        });
 
         jLabel2.setText("Lozinka");
 
@@ -117,20 +128,35 @@ public class Autorizacija extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPrijavaActionPerformed
 
     private void txtLozinkaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtLozinkaKeyPressed
-        // TODO add your handling code here:
+         if(txtUsername.getText().trim().isEmpty()){
+            txtUsername.requestFocus();
+            return;
+        } 
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            autorizacija();
+        }
     }//GEN-LAST:event_txtLozinkaKeyPressed
 
     private void txtLozinkaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtLozinkaFocusLost
-        // TODO add your handling code here:
+        txtLozinka.setBackground(Color.WHITE);
     }//GEN-LAST:event_txtLozinkaFocusLost
 
     private void txtLozinkaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtLozinkaFocusGained
-        // TODO add your handling code here:
+        txtLozinka.setBackground(Color.GRAY);
     }//GEN-LAST:event_txtLozinkaFocusGained
 
     private void btnPrijavaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPrijavaMouseClicked
        autorizacija();
     }//GEN-LAST:event_btnPrijavaMouseClicked
+
+    private void txtUsernameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsernameKeyPressed
+         if(txtUsername.getText().trim().isEmpty()){
+            return;
+        }
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            txtLozinka.requestFocus();
+        }
+    }//GEN-LAST:event_txtUsernameKeyPressed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnPrijava;
@@ -140,7 +166,10 @@ public class Autorizacija extends javax.swing.JFrame {
     private javax.swing.JPasswordField txtLozinka;
     private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
-
+    
+            
+        
+    
     private void autorizacija(){
         if(txtUsername.getText().trim().isEmpty()){
             txtUsername.requestFocus();
