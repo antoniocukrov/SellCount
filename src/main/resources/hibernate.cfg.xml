@@ -26,11 +26,11 @@
     <property name="hibernate.dbcp.minIdle">5</property>
     <property name="hibernate.dbcp.maxWaitMillis">-1</property>
     <property name="hibernate.connection.autocommit">true</property>
-    <mapping class="SellCount.model.Artikl"/>
-    <mapping class="SellCount.model.Primka"/>
-    <mapping class="SellCount.model.Jmjera"/>
-    <mapping class="SellCount.model.Klasifikacija"/>
-    <mapping class="SellCount.model.Operater"/>
-    <mapping class="SellCount.model.Djelatnik"/>
+    <mapping class="sellCount.model.Artikl"/>
+    <mapping class="sellCount.model.Primka"/>
+    <mapping class="sellCount.model.Jmjera"/>
+    <mapping class="sellCount.model.Klasifikacija"/>
+    <mapping class="sellCount.model.Operater"/>
+    <mapping class="sellCount.model.Djelatnik"/>
   </session-factory>
 </hibernate-configuration>
