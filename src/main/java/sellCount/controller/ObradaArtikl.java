@@ -1,5 +1,6 @@
 package sellCount.controller;
 
+import java.math.BigDecimal;
 import sellCount.model.Artikl;
 import sellCount.util.HibernateUtil;
 import sellCount.util.SellCountException;
@@ -37,13 +38,20 @@ public class ObradaArtikl extends Obrada<Artikl>{
         
     }
     
-    
+    private void kontrolaCijena()throws SellCountException {
+        if( entitet.getCijena()==null || 
+                entitet.getCijena().compareTo(Double.valueOf(0.00))<0 ||
+                entitet.getCijena().compareTo(Double.valueOf(200000.00))>0){
+            throw new SellCountException("Cijena mora biti postavljena, veća od 0 i manja od 10000");
+        }
+    }
+
     
     
     
     @Override
     protected void kontrolaCreate() throws SellCountException {
-        
+        kontrolaCijena();
     }
 
     @Override
