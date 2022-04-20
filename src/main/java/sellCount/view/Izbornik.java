@@ -98,7 +98,7 @@ public class Izbornik extends javax.swing.JFrame {
         pnlGraf = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jSnake = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        Logout = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         mDatoteka = new javax.swing.JMenu();
         mItemDjelatnici = new javax.swing.JMenuItem();
@@ -146,15 +146,10 @@ public class Izbornik extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Logout");
-        jButton2.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                jButton2FocusGained(evt);
-            }
-        });
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        Logout.setText("Logout");
+        Logout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                LogoutActionPerformed(evt);
             }
         });
 
@@ -245,7 +240,7 @@ public class Izbornik extends javax.swing.JFrame {
                         .addGap(12, 12, 12)
                         .addComponent(jSnake)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 158, Short.MAX_VALUE)
-                        .addComponent(jButton2)
+                        .addComponent(Logout)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lTop6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -262,7 +257,7 @@ public class Izbornik extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton1)
                             .addComponent(jSnake)
-                            .addComponent(jButton2))
+                            .addComponent(Logout))
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
@@ -314,19 +309,15 @@ public class Izbornik extends javax.swing.JFrame {
         new KlasifikacijaProzor().setVisible(true);
     }//GEN-LAST:event_jKlasifikacijaActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void LogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutActionPerformed
         new Autorizacija().setVisible(true);
         dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jButton2FocusGained
-          jButton2.paint(g);
-    }//GEN-LAST:event_jButton2FocusGained
+    }//GEN-LAST:event_LogoutActionPerformed
  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Logout;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JMenuItem jDokumenti;
     private javax.swing.JMenuItem jKlasifikacija;
     private javax.swing.JMenuBar jMenuBar1;

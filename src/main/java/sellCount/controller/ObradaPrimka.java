@@ -6,7 +6,7 @@ import sellCount.util.SellCountException;
 import java.util.List;
 
 public class ObradaPrimka extends Obrada<Primka>{
-    
+    Primka primka;
     public ObradaPrimka(){
         
     }

@@ -281,6 +281,11 @@ public class ZaprimiProzor extends javax.swing.JFrame {
     }//GEN-LAST:event_txtUvjetKeyPressed
 
     private void btnUnesiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUnesiActionPerformed
+       if(listaSkladiste.getSelectedValue()==null){
+           JOptionPane.showMessageDialog(getRootPane(), "Aj kak ćeš zaprimiti ako nisi ni odabrao artikl koji želiš zaprimiti?");
+           return;
+       }
+        
         Vector vec = new Vector();
         vec.add(listaSkladiste.getSelectedValue().getSifra());
         vec.add(listaSkladiste.getSelectedValue().getNaziv());
@@ -309,6 +314,10 @@ public class ZaprimiProzor extends javax.swing.JFrame {
         if (txtOtpremnica.getText().length() < 1) {
             JOptionPane.showMessageDialog(getRootPane(), "Unesite broj otpremnice");
         }
+        if(txtDobavljac.getText().length() < 1) {
+            JOptionPane.showMessageDialog(getRootPane(), "Unesite dobavljača!");
+        }
+        
         for (int i = 0; i < tblZaprimi.getModel().getRowCount(); i++) {
             int sifra = Integer.parseInt(tblZaprimi.getModel().getValueAt(i, 0).toString());
             double koliko = Double.parseDouble(tblZaprimi.getModel().getValueAt(i, 2).toString());

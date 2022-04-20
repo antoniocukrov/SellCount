@@ -7,6 +7,8 @@ import java.util.List;
 
 public class ObradaDjelatnik extends Obrada<Djelatnik>{
     
+    ObradaPrimka primka;
+    
     @Override
     public List<Djelatnik> read(){
         return session.createQuery("from Djelatnik a order by a.ime").list();

@@ -54,7 +54,9 @@ public class DokumentiProzor extends javax.swing.JFrame {
             vec.add(s.getDjelatnik());
             vec.add(s.getDobavljac());
             vec.add(DajSine(s.getVrijemeZaprimanja()));
-            vec.add(s.getUkupanIznos());
+            String input = s.getUkupanIznos().toString();
+            double d = Double.parseDouble(input);
+            vec.add(String.format("%,.2f", d));
             ms.addRow(vec);
         });
 
@@ -141,6 +143,14 @@ public class DokumentiProzor extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnPdfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPdfActionPerformed
+        if(!tblDokumenti.isRowSelected(tblDokumenti.getSelectedRow())){
+            JOptionPane.showMessageDialog(getRootPane(), "Odaberi što želiš u pdf.");
+            return;
+        }
+        if(tblDokumenti.getRowCount()<1){
+            JOptionPane.showMessageDialog(getRootPane(), "Nema još primki.");
+            return;
+        }
         try {
             OtpremniceDkmnt();
             var izlaz = "C:\\" + "Otpremnice\\" + tblDokumenti.getValueAt(tblDokumenti.getSelectedRow(), 1).toString() + ".pdf";

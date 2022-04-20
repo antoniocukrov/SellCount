@@ -42,7 +42,7 @@ public class ObradaArtikl extends Obrada<Artikl>{
         if( entitet.getCijena()==null || 
                 entitet.getCijena().compareTo(Double.valueOf(0.00))<0 ||
                 entitet.getCijena().compareTo(Double.valueOf(200000.00))>0){
-            throw new SellCountException("Cijena mora biti postavljena, veća od 0 i manja od 10000");
+            throw new SellCountException("Cijena mora biti postavljena, veća od 0 i manja od 200000");
         }
     }
 
@@ -56,7 +56,7 @@ public class ObradaArtikl extends Obrada<Artikl>{
 
     @Override
     protected void kontrolaUpdate() throws SellCountException {
-        
+        kontrolaCijena();
     }
 
     @Override

@@ -41,6 +41,14 @@ public class Autorizacija extends javax.swing.JFrame {
         jLabel1.setText("Username");
 
         txtUsername.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        txtUsername.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtUsernameFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtUsernameFocusLost(evt);
+            }
+        });
         txtUsername.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtUsernameKeyPressed(evt);
@@ -142,7 +150,7 @@ public class Autorizacija extends javax.swing.JFrame {
     }//GEN-LAST:event_txtLozinkaFocusLost
 
     private void txtLozinkaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtLozinkaFocusGained
-        txtLozinka.setBackground(Color.GRAY);
+        txtLozinka.setBackground(Color.LIGHT_GRAY);
     }//GEN-LAST:event_txtLozinkaFocusGained
 
     private void btnPrijavaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPrijavaMouseClicked
@@ -157,6 +165,14 @@ public class Autorizacija extends javax.swing.JFrame {
             txtLozinka.requestFocus();
         }
     }//GEN-LAST:event_txtUsernameKeyPressed
+
+    private void txtUsernameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUsernameFocusGained
+        txtUsername.setBackground(Color.LIGHT_GRAY);
+    }//GEN-LAST:event_txtUsernameFocusGained
+
+    private void txtUsernameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUsernameFocusLost
+        txtUsername.setBackground(Color.WHITE);
+    }//GEN-LAST:event_txtUsernameFocusLost
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnPrijava;
