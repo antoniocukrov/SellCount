@@ -35,7 +35,7 @@ public class ZaprimiProzor extends javax.swing.JFrame {
     DefaultTableModel ms;
     private double ukupniIznos;
     private static final DecimalFormat df = new DecimalFormat("0.00");
-    private List<Artikl> artikliP = new ArrayList<Artikl>();
+    public List<Artikl> artikliP = new ArrayList<Artikl>();
 
     public ZaprimiProzor() {
         initComponents();
